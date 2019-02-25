@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<%@page import="java.util.Collections"%>
+<%@page import="bean.Question"%>
+<%@page import="java.util.ArrayList"%>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Give Exam</title>
+<!-- Bootstrap core CSS-->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link href="vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<!-- Page level plugin CSS-->
+<link href="vendor/datatables/dataTables.bootstrap4.css"
+	rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="css/sb-admin.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+	<!-- Navigation-->
+
+	<%!static int qn = 0;
+	static int getques = 0;// 0 --> get the ques , 1 --> dont get question from session 
+	static int counter = 1;
+	static ArrayList<Question> ques = new ArrayList<Question>();%>
+
+	<%
+		String sub = (String) session.getAttribute("subject");
+
+		if (getques == 0) {
+			//get all question
+			ArrayList<Question> qlist = (ArrayList<Question>) session.getAttribute("qlist");
+			//shuffle all list
+			Collections.shuffle(qlist);
+			for (int i = 0; i < qlist.size(); i++) {
+				//get 10 question
+				if (!(ques.size() == 10)) {
+					ques.add(qlist.get(i));
+				} else {
+					break;
+				}
+			}
+			getques = 1;
+		}
+
+		if (qn >= ques.size()) {
+			qn = 0;
+			getques = 0;
+			counter = 1;
+			response.sendRedirect("result.jsp");
+		}
+		//get a question
+		Question q = ques.get(qn);
+	%>
+	<div class="content-wrapper"
+		style="width: 75%; margin-left: 200px; padding-top: 125px; height: auto !important; margin-bottom: -100px;">
+		<div class="container-fluid" style="height: auto;">
+			<div class="card mb-3" style="height: auto;">
+				<div class="card-header">
+					<i class="fa fa-area-chart"></i> Exam /
+					<%=sub%></div>
+				<div class="card-body">
+					<form action="studans.jsp" method="post">
+
+						<div class="col-md-6">
+							<label for="exampleInputName"
+								style="position: relative; margin-left: 58px;">Question:</label>
+							<input type="text" value="<%=q.getQues()%>"   placeholder="Enter question"
+								style="position: relative; margin-left: 58px; width: 950px; border: 2px #bfbfbf;
+    height: 50px;" >
+						</div>
+						<div class="col-md-6">
+
+
+							<input class="" id="opt" name="opt" type="radio" value="<%=q.getOpt_one()%>"
+								style="margin-left: 65px; margin-right: 5px;"><%=q.getOpt_one()%>
+
+
+
+						</div>
+						<div class="col-md-6">
+
+
+							<input class="" id="opt" name="opt" type="radio" value="<%=q.getOpt_two()%>"
+								style="margin-left: 65px; margin-right: 5px;"><%=q.getOpt_two()%>
+
+						</div>
+						<div class="col-md-6">
+
+
+							<input class="" id="opt" name="opt" type="radio" value="<%=q.getOpt_three()%>"
+								style="margin-left: 65px; margin-right: 5px;"><%=q.getOpt_three()%>
+
+						</div>
+						<div class="col-md-6">
+
+
+							<input class="" id="opt" name="opt" type="radio" value="<%=q.getOpt_four()%>"
+								style="margin-left: 65px; margin-right: 5px;"><%=q.getOpt_four()%>
+							<input type="hidden" name="qno" value="<%=q.getSno()%>"> 
+						</div>
+
+						<br> <input type="submit" class="btn btn-primary btn-block"
+							value="Next"
+							style="width: 150px; position: relative; margin-left: 280px;">
+
+						<%
+							if (getques == 1) {
+								qn++;
+								counter++;
+							}
+						%>
+					</form>
+				</div>
+
+
+
+
+			</div>
+
+
+
+		</div>
+		<!-- /.container-fluid-->
+		<!-- /.content-wrapper-->
+
+
+		<!-- Logout Modal-->
+		<!-- Bootstrap core JavaScript-->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- Core plugin JavaScript-->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		<!-- Page level plugin JavaScript-->
+		<script src="vendor/chart.js/Chart.min.js"></script>
+		<script src="vendor/datatables/jquery.dataTables.js"></script>
+		<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+		<!-- Custom scripts for all pages-->
+		<script src="js/sb-admin.min.js"></script>
+		<!-- Custom scripts for this page-->
+		<script src="js/sb-admin-datatables.min.js"></script>
+		<script src="js/sb-admin-charts.min.js"></script>
+	</div>
+</body>
+
+</html>
