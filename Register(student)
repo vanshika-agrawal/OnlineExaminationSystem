@@ -1,0 +1,308 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Evaluation System</title>
+
+<!-- Bootstrap core CSS-->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link href="vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<!-- Page level plugin CSS-->
+<link href="vendor/datatables/dataTables.bootstrap4.css"
+	rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="css/sb-admin.css" rel="stylesheet">
+<style type="text/css">/* Chart.js */
+@
+-webkit-keyframes chartjs-render-animation {
+	from {opacity: 0.99
+}
+
+to {
+	opacity: 1
+}
+
+}
+@
+keyframes chartjs-render-animation {
+	from {opacity: 0.99
+}
+
+to {
+	opacity: 1
+}
+
+}
+.chartjs-render-monitor {
+	-webkit-animation: chartjs-render-animation 0.001s;
+	animation: chartjs-render-animation 0.001s;
+}
+</style>
+<style type="text/css">/* Chart.js */
+@
+-webkit-keyframes chartjs-render-animation {
+	from {opacity: 0.99
+}
+
+to {
+	opacity: 1
+}
+
+}
+@
+keyframes chartjs-render-animation {
+	from {opacity: 0.99
+}
+
+to {
+	opacity: 1
+}
+
+}
+.chartjs-render-monitor {
+	-webkit-animation: chartjs-render-animation 0.001s;
+	animation: chartjs-render-animation 0.001s;
+}
+</style>
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
+	<!-- Navigation-->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">Student</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="studashboard.jsp">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Login">
+          <a class="nav-link" href="login.html">
+            <i class="fa fa-share-square-o"></i>
+            <span class="nav-link-text"> Login</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Sign In">
+          <a class="nav-link" href="register.html">
+            <i class="fa fa-sign-in"></i>
+            <span class="nav-link-text">Register</span>
+          </a>
+        </li>
+        
+         
+        
+      </ul>
+
+			<ul class="navbar-nav sidenav-toggler">
+				<li class="nav-item"><a class="nav-link text-center"
+					id="sidenavToggler"> <i class="fa fa-fw fa-angle-left"></i>
+				</a></li>
+			</ul>
+
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<form class="form-inline my-2 my-lg-0 mr-lg-2">
+							<div class="input-group">
+								<input class="form-control" type="text"
+									placeholder="Search for..."> <span
+									class="input-group-append">
+									<button class="btn btn-primary" type="button">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
+							</div>
+						</form>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+
+			<div class="container">
+				<div class="card card-register mx-auto mt-5"
+					style="box-shadow: 0 7px 7px 0; margin-bottom: 55px;">
+					<div class="card-header">Register an Account</div>
+					<div class="card-body">
+						<form action="registerdb.jsp" method="post">
+							<div class="form-group">
+								<div class="form-row">
+									<div class="col-md-6">
+										<label for="exampleInputName">Full name</label> <input
+											class="form-control" id="exampleInputName" type="text" name="f_name"
+											aria-describedby="nameHelp" placeholder="Enter full name" required>
+									</div>
+									<div class="col-md-6">
+										<label for="exampleInputEmail1">Email address</label> <input
+											class="form-control" id="exampleInputEmail1" type="email" name="email"
+											aria-describedby="emailHelp" placeholder="Enter email" required>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-row">
+									<div class="col-md-6">
+										<label for="exampleInputEmail1">Contact</label> <input
+											class="form-control" id="exampleInputEmail1" type="text" name="contact"
+											aria-describedby="emailHelp" placeholder="Enter contact" required>
+									</div>
+
+									
+									<div class="col-md-6">
+										<label for="exampleInputEmail1">Gender</label> <input
+											class="form-control" id="exampleInputEmail1" type="text" name="gen"
+											aria-describedby="emailHelp" placeholder="Enter gender" required>
+									</div>
+									</div>
+								</div>
+							
+							<div class="form-group">
+								<div class="form-row">
+									<div class="col-md-6">
+										<label for="exampleInputEmail1">Passout Year</label> <br>
+										<div
+											style="padding: 7px; padding-left: 40px; border: 1px #ced4da solid; border-radius: 5px;">
+										
+												<select
+												id="gen" name="pass"  style="margin-left: -2px;margin-right:2px; width:220px;">
+											
+												<option>2014</option>
+												<option>2015</option>
+												<option>2016</option>
+												<option>2017</option>
+												<option>2018</option>
+												</select>
+												
+										</div>
+									</div>
+									<div class="col-md-6">
+										<label for="exampleInputEmail1">Branch</label>
+										<div
+											style="padding: 7px; padding-left: 40px; border: 1px #ced4da solid; border-radius: 5px;">
+										
+												<select
+												id="gen" name="branch"  style="margin-left: -2px;margin-right:2px; width:220px;">
+											
+												<option>ECE</option>
+												<option>CSE</option>
+												<option>EE</option>
+												<option>ME</option>
+												</select>
+												
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-row">
+									<div class="col-md-6">
+										<label for="exampleInputPassword1">Password</label> <input
+											class="form-control" id="exampleInputPassword1" name="password"
+											type="password" placeholder="Password" required>
+									</div>
+									<div class="col-md-6">
+										<label for="exampleConfirmPassword">City</label> <input
+											class="form-control" id="exampleConfirmPassword" name="city"
+											type="text" placeholder="enter city" required>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-row">
+									<div class="col-md-6">
+										<label for="exampleInputEmail1">High school Percentage</label> 
+										 <input
+											class="form-control" id="exampleInputName" type="text" name="high"
+											aria-describedby="nameHelp" placeholder="Enter high school percentage" required>
+									</div>
+									<div class="col-md-6">
+										<label for="exampleInputEmail1">Intermediate Percentage</label> <input
+											class="form-control" id="exampleInputCity" type="text" name="inter"
+											aria-describedby="CityHelp" placeholder="Enter intermediate percentage" required>
+									</div>
+								</div>
+							</div>
+							<input type="submit" class="btn btn-primary btn-block" value="Register">
+						</form>
+						<div class="text-center">
+							<a class="d-block small mt-3" href="login.html">Login Page</a> <a
+								class="d-block small" href="forgot-password.html">Forgot
+								Password?</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<!-- /.container-fluid-->
+	<!-- /.content-wrapper-->
+	<footer class="sticky-footer">
+		<div class="container">
+			<div class="text-center">
+				<small>Copyright © Your Website 2018</small>
+			</div>
+		</div>
+	</footer>
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"
+		style="display: none;"> <i class="fa fa-angle-up"></i>
+	</a>
+	<!-- Logout Modal-->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready
+					to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="login.html">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap core JavaScript-->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Core plugin JavaScript-->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<!-- Page level plugin JavaScript-->
+	<script src="vendor/chart.js/Chart.min.js"></script>
+	<script src="vendor/datatables/jquery.dataTables.js"></script>
+	<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+	<!-- Custom scripts for all pages-->
+	<script src="js/sb-admin.min.js"></script>
+	<!-- Custom scripts for this page-->
+	<script src="js/sb-admin-datatables.min.js"></script>
+	<script src="js/sb-admin-charts.min.js"></script>
+
+
+</body>
+</html>
