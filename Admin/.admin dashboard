@@ -1,0 +1,380 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@page import="java.sql.*"%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Admin</title>
+  <script>
+window.onload = function() {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: "Exam Taken in Particular Subjects"
+	},
+	data: [{
+		type: "pie",
+		startAngle: 240,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [
+			{y: 10.46, label: "C"},
+			{y: 47.31, label: "JAVA"},
+			{y: 17.06, label: "Python"},
+			{y: 14.91, label: "Data Structures"},
+			{y: 10.26, label: "Others"}
+		]
+	}]
+});
+chart.render();
+
+}
+
+
+</script>
+<style>
+* {box-sizing: border-box}
+
+.con{
+  width: 100%;
+  background-color: #ddd;
+}
+
+.skills {
+  text-align: right;
+  padding-right: 20px;
+  line-height: 40px;
+  color: white;
+}
+
+.sql {width: 90%; background-color: #4CAF50;}
+.java {width: 80%; background-color: #2196F3;}
+.python {width: 65%; background-color: #f44336;}
+.c {width: 50%; background-color: #808080;}
+</style>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <!-- Bootstrap core CSS-->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">Admin</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="dashboard.jsp">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+          <a class="nav-link" href="addsub.jsp">
+            <i class="fa fa-list-alt"></i>
+            <span class="nav-link-text"> Add Subject</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="deletesub.jsp">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Delete Subject</span>
+          </a>
+        </li>
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="addques.jsp">
+            <i class="fa fa-th"></i>
+            <span class="nav-link-text">Add Questions</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="delquestion.jsp">
+            <i class="fa fa-clone"></i>
+            <span class="nav-link-text">Delete Questions</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="studentdetails.jsp">
+            <i class="fa fa-user-circle-o"></i>
+            <span class="nav-link-text">Student Details</span>
+          </a>
+        </li>
+         
+        
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+         
+          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+            <h6 class="dropdown-header">New Messages:</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong>David Miller</strong>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong>Jane Smith</strong>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong>John Doe</strong>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">View all messages</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+         
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">New Alerts:</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-danger">
+                <strong>
+                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">View all alerts</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Search for...">
+              <span class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">My Dashboard</li>
+      </ol>
+      <h1></h1>
+      <hr>
+      <div class="card mb-3" style="height: 485px;">
+					<div class="card-header">
+						<i class="fa fa-pie-chart"></i> Subject Exam
+					</div>
+					<div class="card-body">
+						<div class="row">
+
+							<div class="col-sm-8 my-auto">
+								<div class="chartjs-size-monitor"
+									style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+									<div class="chartjs-size-monitor-expand"
+										style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+										<div
+											style="position: absolute; width: 1000000px; height: 1000000px; left: 0; top: 0"></div>
+									</div>
+									<div class="chartjs-size-monitor-shrink"
+										style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+										<div
+											style="position: absolute; width: 200%; height: 200%; left: 0; top: 0"></div>
+									</div>
+
+	
+								</div>
+
+								<div id="chartContainer" style="height: 300px; width: 150%;"></div>
+							</div>
+						</div>
+				</div>
+					<div class="card-footer small text-muted"></div>
+				</div>
+				
+				 <hr>
+				<div class="card mb-3" style="height: 120px;">
+					<div class="card-header">
+						<i class="fa fa-users"></i> Users Details
+					</div>
+					<div class="card-body">
+ <%
+						Class.forName("com.mysql.jdbc.Driver");
+						String jdbcurl = "jdbc:mysql://localhost:3306/spe";
+						String Username = "root";
+						String Password = "1234";
+						Connection con = DriverManager.getConnection(jdbcurl, Username, Password);
+						Statement stmt = con.createStatement();
+						ResultSet rs = null;
+						ResultSet rss = null;
+
+						String query = "select count(fname) from register";
+						rs = stmt.executeQuery(query);
+					%>
+					
+						<%
+							while (rs.next()) {
+						%>
+
+
+						<h5>Number of Users logged in-:  <%=rs.getString(1)%></h5>
+
+						<%
+							}
+						%>
+						<%
+							rs.close();
+							stmt.close();
+							con.close();
+						%>
+				
+									
+
+					
+					</div>
+					</div>
+					
+				</div>
+			
+				
+				
+				 <hr>
+				<div class="card mb-3" style="height: 485px;">
+					<div class="card-header">
+						<i class="fa fa-paw"></i> Languages in Demand
+					</div>
+					<div class="card-body">
+					
+<p>SQL</p>
+<div class="con">
+  <div class="skills sql">90%</div>
+</div>
+
+<p>Java</p>
+<div class="con">
+  <div class="skills java">80%</div>
+</div>
+
+<p>Python</p>
+<div class="con">
+  <div class="skills python">65%</div>
+</div>
+
+<p>C++</p>
+<div class="con">
+  <div class="skills c">50%</div>
+</div>
+					
+					
+					</div>
+					<div class="card-footer small text-muted"></div>
+				</div>
+						
+		
+						</div>
+			
+			
+			
+			
+				</div>
+			
+	
+      <!-- Icon Cards-->
+      
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+ 
+</body>
+
+</html>
+    
