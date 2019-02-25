@@ -1,0 +1,176 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Add Questions-Admin</title>
+  <!-- Bootstrap core CSS-->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  
+  <jsp:include page="sidenavadmin.html"/>
+  
+    <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Add Questions</li>
+      </ol>
+      
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-th"></i> Add Questions</div>
+          <div class="content-wrapper">
+		<div class="container-fluid">
+
+			<div class="container">
+				<div class="card card-register mx-auto mt-5"
+					style="box-shadow: 0 7px 7px 0; margin-bottom: 50px;">
+					<div class="card-header">Add Questions</div>
+					<div class="card-body">
+           <form action="addquesbd.jsp">
+        <div class="card-body">
+          <div class="table-responsive">
+           <div class="col-md-6">
+										
+										<div class="form-group">
+										<div class="form-row">
+									<div class="col-md-6">
+									
+										<label for="exampleInputName" style= "position:relative; margin-left: 58px;">Subject:</label> <input
+											class="form-control" id="exampleInputName" type="text" name="subject"
+											aria-describedby="nameHelp" placeholder="Enter subject" style= "position:relative; margin-left: 58px; width:400px;">
+									</div>
+									</div>
+							
+								<div class="form-row">
+									<div class="col-md-6">
+										<label for="exampleInputName" style= "position:relative; margin-left: 58px;">Question:</label> <input
+											class="form-control" id="exampleInputName" type="text" name="question"
+											aria-describedby="nameHelp" placeholder="Enter question" style= "position:relative; margin-left: 58px; width:400px;">
+									</div>
+									</div>
+									<div class="form-row">
+									<div class="col-md-6">
+										<label for="exampleInputEmail1"  style= "position:relative; margin-left: 58px;">a)</label> <input
+											class="form-control" id="exampleInputEmail1" type="text" name="opt1"
+											aria-describedby="emailHelp" placeholder="Enter first option"  style= "position:relative; margin-left: 58px; width:400px;">
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="col-md-6">
+										<label for="exampleInputName" style= "position:relative; margin-left: 58px;">b)</label> <input
+											class="form-control" id="exampleInputName" type="text" name="opt2"
+											aria-describedby="nameHelp" placeholder="Enter second option" style= "position:relative; margin-left: 58px; width:400px;">
+									</div>
+									</div>
+									<div class="form-row">
+									<div class="col-md-6">
+										<label for="exampleInputName" style= "position:relative; margin-left: 58px;">c)</label> <input
+											class="form-control" id="exampleInputName" type="text" name="opt3"
+											aria-describedby="nameHelp" placeholder="Enter third option" style= "position:relative; margin-left: 58px; width:400px;">
+									</div>
+									</div>
+									<div class="form-row">
+									<div class="col-md-6">
+										<label for="exampleInputName" style= "position:relative; margin-left: 58px;">d)</label> <input
+											class="form-control" id="exampleInputName" type="text"  name="opt4"
+											aria-describedby="nameHelp" placeholder="Enter fouth option" style= "position:relative; margin-left: 58px; width:400px;">
+									</div>
+									</div>
+									<div>
+									<div class="form-row">
+									<div class="col-md-6">
+									
+										<label for="exampleInputName" style= "position:relative; margin-left: 58px;">CorrectAnswer:</label> <input
+											class="form-control" id="exampleInputName" type="text"  name="corret_ans"
+											aria-describedby="nameHelp" placeholder="Enter correct answer" style= "position:relative; margin-left: 58px; width:400px;">
+									</div>
+									</div>
+									</div>
+									
+							
+							
+							
+									<br>
+									         
+										<input type="submit" class="btn btn-primary btn-block" value="Add" style="width:100px;  position:relative; margin-left: 200px;">
+         
+           </div>
+            	</div>
+            	</div>
+            </div>
+           </form>
+        
+            </div>
+            	</div>
+			</div>
+			</div>
+			
+
+
+		</div>
+	</div>
+    </div>
+            
+      </div>
+   
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+  
+</body>
+
+</html>
+    
